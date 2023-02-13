@@ -24,15 +24,15 @@ class StorePatientPregnancyRequest extends FormRequest
     public function rules()
     {
         return [
-            'age_of_gestation'=>'required|numeric|max:9|min:0',
-            'baby_count'=>'required|numeric',
+            'age_of_gestation' => 'required|numeric|max:9|min:0',
+            'baby_count' => 'required|numeric',
         ];
     }
 
     public function attributes()
     {
         return [
-            'baby_count'=>'no. of baby'
+            'baby_count' => 'no. of baby',
         ];
     }
 }

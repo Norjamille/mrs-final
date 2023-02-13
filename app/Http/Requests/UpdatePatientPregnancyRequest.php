@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePatientCheckUpSchedule extends FormRequest
+class UpdatePatientPregnancyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,16 @@ class StorePatientCheckUpSchedule extends FormRequest
     public function rules()
     {
         return [
-            'date_at' => 'required|after:yesterday',
-            'description' => 'required|max:250',
+            'delivered_at' => 'required|date',
+            'delivery_type' => 'required',
+            'active'=>'required'
         ];
     }
 
     public function attributes()
     {
         return [
-            'date_at' => 'check up date',
+            'delivered_at' => 'delivered date',
         ];
     }
 }

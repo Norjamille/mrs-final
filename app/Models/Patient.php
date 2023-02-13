@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
@@ -24,7 +24,7 @@ class Patient extends Model
 
     public function getIsPregnantAttribute()
     {
-        return $this->current_pregnant_with ? true:false;
+        return $this->current_pregnant_with ? true : false;
     }
 
     public function user()
@@ -35,5 +35,10 @@ class Patient extends Model
     public function pregnancies()
     {
         return $this->hasMany(Pregnancy::class);
+    }
+
+    public function checkUps()
+    {
+        return $this->hasMany(CheckUp::class);
     }
 }

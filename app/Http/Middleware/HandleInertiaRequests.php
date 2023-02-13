@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
                 ]);
             },
             'toast' => session('toast'),
-            'referrer'=>request()->headers->get('referer'),
+            'referrer' => request()->headers->get('referer'),
         ]);
     }
 }

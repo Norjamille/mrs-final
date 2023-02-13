@@ -4,20 +4,19 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
 
-class PatientPregnancyService
+class PatientCheckUpScheduleService
 {
     public function store($patient, $form)
     {
         DB::beginTransaction();
-        $patient->pregnancies()->create($form);
+        $patient->checkUps()->create($form);
         DB::commit();
     }
 
-    public function update($patient,$form)
+    public function update($checkup,$form)
     {
-        $pregnancy = $patient->pregnancies()->whereActive(true)->first();
         DB::beginTransaction();
-        $pregnancy->update($form);
+        $checkup->update($form);
         DB::commit();
     }
 }

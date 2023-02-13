@@ -15,11 +15,11 @@ class PatientService
         DB::commit();
     }
 
-    public function update($patient,$form)
+    public function update($patient, $form)
     {
         DB::beginTransaction();
         $patient->update($form);
-        $this->updateAccount($form['first_name'], $form['email'],$patient->user_id);
+        $this->updateAccount($form['first_name'], $form['email'], $patient->user_id);
         DB::commit();
     }
 
@@ -40,7 +40,7 @@ class PatientService
         return $user;
     }
 
-    protected function updateAccount($name, $email ,$userId)
+    protected function updateAccount($name, $email, $userId)
     {
         User::findOrFail($userId)->update([
             'name' => $name,

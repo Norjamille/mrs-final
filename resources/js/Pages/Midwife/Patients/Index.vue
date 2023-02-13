@@ -12,7 +12,13 @@ import { reactive, watch } from 'vue';
 import debounce from 'lodash/debounce'
 import { router } from '@inertiajs/core';
 import TableButton from '@/Components/TableButton.vue';
-import { CalendarDaysIcon, ClipboardDocumentListIcon, PencilSquareIcon } from '@heroicons/vue/24/outline';
+import {
+    CalendarDaysIcon,
+    ClipboardDocumentListIcon,
+    PencilSquareIcon,
+    ClipboardDocumentIcon,
+    PlusIcon
+} from '@heroicons/vue/24/outline';
 
 
 
@@ -43,8 +49,8 @@ watch(filters, debounce(function (value) {
     <MidwifeLayout title="Patients">
         <div class="grid gap-4">
             <div>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-3 items-center divide-x-2">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3 divide-x-2">
                         <TextInput v-model="filters.search" type="search" placeholder="Search..." />
                         <div class="flex pl-3 space-x-3">
                             <Filter name="Status">
@@ -66,10 +72,9 @@ watch(filters, debounce(function (value) {
                     </div>
                 </div>
             </div>
-            <Table :headers="['Full Name', 'Age', 'Address', 'Contact number', 'Active', 'Actions']">
+            <Table :headers="['Full Name', 'Address', 'Contact number', 'Active', 'Actions']">
                 <tr v-for="patient in props.patients.data" :key="patient.id">
                     <Tcell>{{ patient.full_name }} </Tcell>
-                    <Tcell>{{ patient.age }} </Tcell>
                     <Tcell>{{ patient.address }} </Tcell>
                     <Tcell>{{ patient.contact_number }} </Tcell>
                     <Tcell>
@@ -80,22 +85,41 @@ watch(filters, debounce(function (value) {
                         </span>
                     </Tcell>
                     <Tcell>
-                        <div class="flex space-x-3 items-center">
+                        <div class="flex items-center space-x-3">
                             <TableButton :href="route('midwife.patients.edit', { patient: patient.id })">
                                 <PencilSquareIcon class="h-5 mr-2" />
                                 Edit
                             </TableButton>
-                            <span class="text-gray-200">|</span>
-                            <TableButton :href="route('midwife.pregnancy.create', { patient: patient.id })">
-                                <ClipboardDocumentListIcon class="h-5 mr-2" />
-                                Pregnancy
-                            </TableButton>
-                            <span class="text-gray-200">|</span>
-                            <TableButton
-                                :href="route('midwife.pregnancy.check-up.schedules.create', { patient: patient.id })">
-                                <CalendarDaysIcon class="h-5 mr-2" />
-                                Schedules
-                            </TableButton>
+
+                            <template v-if="patient.is_pregnant">
+                                <span class="text-gray-200">|</span>
+                                <TableButton
+                                    :href="route('midwife.pregnancy.check-up.schedules.create', { patient: patient.id })">
+                                    <CalendarDaysIcon class="h-5 mr-2" />
+                                    Schedules
+                                </TableButton>
+                                <span class="text-gray-200">|</span>
+                                <TableButton :href="route('midwife.pregnancy.edit', { patient: patient.id })">
+                                    <ClipboardDocumentIcon class="h-5 mr-2" />
+                                    Update Pregnancy
+                                </TableButton>
+                            </template>
+                            <template v-else>
+                                <span class="text-gray-200">|</span>
+                                <TableButton :href="route('midwife.pregnancy.create', { patient: patient.id })">
+                                    <ClipboardDocumentListIcon class="h-5 mr-2" />
+                                    Pregnancy
+                                </TableButton>
+                            </template>
+                            <template v-if="patient.has_unrecorded_baby">
+                                <span class="text-gray-200">|</span>
+                                <TableButton :href="route('midwife.pregnancy.create', { patient: patient.id })">
+                                    <PlusIcon class="h-5 mr-2 text-red-600 animate-pulse" />
+                                    <span class="text-red-600 animate-pulse">Record Infant ({{
+                                        patient.un_recorded_babay_count.baby_count
+                                    }})</span>
+                                </TableButton>
+                            </template>
                         </div>
                     </Tcell>
                 </tr>

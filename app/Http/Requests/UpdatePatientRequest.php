@@ -24,7 +24,7 @@ class UpdatePatientRequest extends FormRequest
     public function rules()
     {
         return [
-            'id'=>'required',
+            'id' => 'required',
             'first_name' => 'required',
             'middle_name' => 'nullable',
             'last_name' => 'required',

@@ -25,6 +25,8 @@ Route::prefix('midwife/patients')
 ->group(function () {
     Route::get('/{patient}/pregnancy/create', 'create')->name('midwife.pregnancy.create');
     Route::post('/{patient}/pregnancy', 'store')->name('midwife.pregnancy.store');
+    Route::get('/{patient}/pregnancy/edit', 'edit')->name('midwife.pregnancy.edit');
+    Route::patch('/{patient}/pregnancy/update', 'update')->name('midwife.pregnancy.update');
 });
 
 Route::prefix('midwife/patients')
@@ -47,6 +49,8 @@ Route::prefix('midwife/schedules')
 ->controller(\App\Http\Controllers\Midwife\ScheduleController::class)
 ->group(function () {
     Route::get('/', 'index')->name('midwife.schedules');
+    Route::get('/{checkup}/edit', 'edit')->name('midwife.schedules.edit');
+    Route::patch('/{checkup}/update', 'update')->name('midwife.schedules.update');
 });
 
 Route::prefix('midwife/reports')
