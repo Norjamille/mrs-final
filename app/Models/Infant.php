@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Infant extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function pregnancy()
+    {
+        return $this->belongsTo(Pregnancy::class);
+    }
 }

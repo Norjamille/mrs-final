@@ -21,6 +21,14 @@ Route::prefix('midwife/patients')
 
 Route::prefix('midwife/patients')
 ->middleware(['auth', 'role:Midwife'])
+->controller(\App\Http\Controllers\Midwife\PatientInfantController::class)
+->group(function () {
+    Route::get('{patient}/infant/create', 'create')->name('midwife.patients.infant.create');
+    Route::post('{patient}/infant/store', 'store')->name('midwife.patients.infant.store');
+});
+
+Route::prefix('midwife/patients')
+->middleware(['auth', 'role:Midwife'])
 ->controller(\App\Http\Controllers\Midwife\PatientPregnancyController::class)
 ->group(function () {
     Route::get('/{patient}/pregnancy/create', 'create')->name('midwife.pregnancy.create');

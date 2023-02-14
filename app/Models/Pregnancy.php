@@ -24,4 +24,9 @@ class Pregnancy extends Model
     {
         return $this->belongsTo(Patient::class);
     }
+
+    public function infants()
+    {
+        return $this->hasMany(Infant::class);
+    }
 }
