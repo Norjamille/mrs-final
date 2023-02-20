@@ -4,8 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePatientPregnancyRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,16 +25,9 @@ class UpdatePatientPregnancyRequest extends FormRequest
     public function rules()
     {
         return [
-            'delivered_at' => 'required|date',
-            'delivery_type' => 'required',
-            'active' => 'required',
-        ];
-    }
-
-    public function attributes()
-    {
-        return [
-            'delivered_at' => 'delivered date',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $this->user->id,
+            'role' => 'required|string|in:Admin,Midwife',
         ];
     }
 }

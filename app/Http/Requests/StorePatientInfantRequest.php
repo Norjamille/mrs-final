@@ -24,13 +24,13 @@ class StorePatientInfantRequest extends FormRequest
     public function rules()
     {
         return [
-            'pregnancy_id'=> 'required',
-            'first_name'=> 'required',
-            'last_name'=> 'required',
-            'gender'=> 'required',
-            'date_of_birth'=> 'required',
-            'remarks'=> 'required',
-            'status'=> 'required',
+            'pregnancy_id' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'remarks' => 'required',
+            'status' => 'required',
         ];
     }
 }

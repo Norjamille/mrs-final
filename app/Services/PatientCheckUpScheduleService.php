@@ -13,7 +13,7 @@ class PatientCheckUpScheduleService
         DB::commit();
     }
 
-    public function update($checkup,$form)
+    public function update($checkup, $form)
     {
         DB::beginTransaction();
         $checkup->update($form);

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('age_of_gestation');
             $table->integer('baby_count')->default(1);
             $table->string('birth_date')->nullable();
-            $table->string('baby_status')->nullable(); 
+            $table->string('baby_status')->nullable();
             $table->dateTime('delivered_at')->nullable();
             $table->string('delivery_type')->nullable(); // Viginal Birth
             $table->boolean('active')->default(true);

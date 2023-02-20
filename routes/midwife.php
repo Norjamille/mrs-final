@@ -25,6 +25,8 @@ Route::prefix('midwife/patients')
 ->group(function () {
     Route::get('{patient}/infant/create', 'create')->name('midwife.patients.infant.create');
     Route::post('{patient}/infant/store', 'store')->name('midwife.patients.infant.store');
+    Route::get('/infant/{infant}/edit', 'edit')->name('midwife.patients.infant.edit');
+    Route::patch('/infant/{infant}/update', 'update')->name('midwife.patients.infant.update');
 });
 
 Route::prefix('midwife/patients')

@@ -18,7 +18,7 @@ import {
 
 let filters = reactive({
     search: props.filters.search,
-    status: props.filters.status,
+    scope: props.filters.scope,
     date: props.filters.date
 })
 
@@ -32,14 +32,14 @@ const props = defineProps({
     <MidwifeLayout title="Schedules">
         <div class="grid gap-4">
             <div>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-3 items-center divide-x-2">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3 divide-x-2">
                         <TextInput v-model="filters.search" type="search" placeholder="Search..." />
                         <div class="flex pl-3 space-x-3">
-                            <Filter name="Status">
-                                <SelectInput v-model="filters.status">
+                            <Filter name="Scope">
+                                <SelectInput v-model="filters.scope">
                                     <option value="">All</option>
-                                    <option value="pregnant">Pregnant</option>
+                                    <option value="upcoming">Upcoming</option>
                                 </SelectInput>
                             </Filter>
                             <Filter name="Date">

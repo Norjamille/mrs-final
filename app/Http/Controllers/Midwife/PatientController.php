@@ -42,9 +42,8 @@ class PatientController extends Controller
                             'age' => $patient->age,
                             'address' => $patient->address,
                             'contact_number' => $patient->contact_number,
-                            'is_pregnant' =>count($patient->pregnancies->where('active',true)),
-                            'has_unrecorded_baby'=>count($patient->pregnancies->where('active',false)->where('is_recorded',false)),
-                            'un_recorded_babay_count'=> $patient->pregnancies->where('is_recorded',false)->first(),
+                            'is_pregnant' => count($patient->pregnancies->where('active', true)),
+                            'has_unrecorded_baby' => count($patient->pregnancies->where('active', false)->where('is_recorded', false)),
                         ]),
             'filters' => Request::only(['search', 'status', 'created']),
         ]);

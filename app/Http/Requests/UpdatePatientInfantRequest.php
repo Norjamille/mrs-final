@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePatientPregnancyRequest extends FormRequest
+class UpdatePatientInfantRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,13 @@ class UpdatePatientPregnancyRequest extends FormRequest
     public function rules()
     {
         return [
-            'delivered_at' => 'required|date',
-            'delivery_type' => 'required',
-            'active' => 'required',
-        ];
-    }
-
-    public function attributes()
-    {
-        return [
-            'delivered_at' => 'delivered date',
+            'pregnancy_id' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'remarks' => 'required',
+            'status' => 'required',
         ];
     }
 }

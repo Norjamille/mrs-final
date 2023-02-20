@@ -39,7 +39,7 @@ class PatientPregnancyController extends Controller
 
     public function edit(Patient $patient)
     {
-        if (!$patient->pregnancies()->whereActive(true)->exists()) {
+        if (! $patient->pregnancies()->whereActive(true)->exists()) {
             return redirect()->route('midwife.patients')->with('toast', [
                 'type' => 'error',
                 'message' => 'Failed to continue. Patient is currently inactive',
@@ -48,17 +48,17 @@ class PatientPregnancyController extends Controller
 
         return Inertia::render('Midwife/Patients/Pregnancy/Edit', [
             'patient' => $patient,
-            'delivery_types'=>Pregnancy::DELIVERY_TYPE
+            'delivery_types' => Pregnancy::DELIVERY_TYPE,
         ]);
     }
 
-    public function update(Patient $patient,UpdatePatientPregnancyRequest $request)
+    public function update(Patient $patient, UpdatePatientPregnancyRequest $request)
     {
-        (new PatientPregnancyService())->update($patient,$request->validated());
+        (new PatientPregnancyService())->update($patient, $request->validated());
 
-        return redirect()->route('midwife.patients')->with('toast',[
-            'type'=>'success',
-            'message'=>'Patient pregnancy has been updated',
+        return redirect()->route('midwife.patients')->with('toast', [
+            'type' => 'success',
+            'message' => 'Patient pregnancy has been updated',
         ]);
     }
 }

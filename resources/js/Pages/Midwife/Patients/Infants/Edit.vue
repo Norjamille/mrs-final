@@ -9,31 +9,26 @@ import MidwifeLayout from '@/Layouts/MidwifeLayout.vue';
 import { useForm } from '@inertiajs/vue3';
 
 let props = defineProps({
-    patient: Object,
-    pregnancy: Object
+    infant: Object,
 })
 
 let form = useForm({
-    pregnancy_id: props.pregnancy.id,
-    first_name: '',
-    last_name: '',
-    gender: '',
-    date_of_birth: '',
-    remarks: 'N/A',
-    status: '',
+    pregnancy_id: props.infant.pregnancy_id,
+    first_name: props.infant.first_name,
+    last_name: props.infant.last_name,
+    gender: props.infant.gender,
+    date_of_birth: props.infant.date_of_birth,
+    remarks: props.infant.remarks,
+    status: props.infant.status,
 });
 
 const submitHandler = () => {
-    form.post(route('midwife.patients.infant.store', { patient: props.patient.id }), {
-        onSuccess: () => {
-            form.reset();
-        }
-    })
+    form.patch(route('midwife.patients.infant.update', { infant: props.infant.id }))
 }
 </script>
 
 <template>
-    <MidwifeLayout title="Record Infant">
+    <MidwifeLayout title="Edit Infant">
         <div>
             <form @submit.prevent="submitHandler">
                 <Card>

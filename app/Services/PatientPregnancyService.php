@@ -13,7 +13,7 @@ class PatientPregnancyService
         DB::commit();
     }
 
-    public function update($patient,$form)
+    public function update($patient, $form)
     {
         $pregnancy = $patient->pregnancies()->whereActive(true)->first();
         DB::beginTransaction();

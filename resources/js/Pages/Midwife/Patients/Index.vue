@@ -115,9 +115,7 @@ watch(filters, debounce(function (value) {
                                 <span class="text-gray-200">|</span>
                                 <TableButton :href="route('midwife.patients.infant.create', { patient: patient.id })">
                                     <PlusIcon class="h-5 mr-2 text-red-600 animate-pulse" />
-                                    <span class="text-red-600 animate-pulse">Record Infant ({{
-                                        patient.un_recorded_babay_count.baby_count
-                                    }})</span>
+                                    <span class="text-red-600 animate-pulse">Record Infant </span>
                                 </TableButton>
                             </template>
                         </div>
