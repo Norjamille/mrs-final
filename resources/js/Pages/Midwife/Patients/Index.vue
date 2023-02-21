@@ -123,8 +123,8 @@ watch(filters, debounce(function (value) {
                 </tr>
                 <EmptyTable v-if="props.patients.data.length == 0" colspan="6" />
                 <template #footer>
-                    <Pagination :prev-url="patients.prev_page_url" :next-url="patients.next_page_url"
-                        :from="patients.from" :to="patients.to" :total="patients.total" />
+                    <Pagination :prev-url="patients.prev_page_url" :next-url="patients.next_page_url" :from="patients.from"
+                        :to="patients.to" :total="patients.total" />
                 </template>
             </Table>
         </div>

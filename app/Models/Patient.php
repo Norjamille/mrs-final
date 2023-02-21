@@ -41,4 +41,9 @@ class Patient extends Model
     {
         return $this->hasMany(CheckUp::class);
     }
+
+    public function purok()
+    {
+        return $this->belongsTo(Purok::class);
+    }
 }

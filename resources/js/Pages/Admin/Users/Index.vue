@@ -7,7 +7,9 @@ import Tcell from '@/Components/Tcell.vue';
 import TableButton from '@/Components/TableButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import PrimaryButtonLink from '@/Components/PrimaryButtonLink.vue';
-import { reactive } from 'vue';
+import { reactive, watch } from 'vue';
+import debounce from 'lodash/debounce';
+import { router } from '@inertiajs/core';
 
 import {
     PencilSquareIcon,
@@ -24,6 +26,16 @@ const props = defineProps({
     users: Object,
     filters: Object
 })
+
+watch(filters, debounce(function (value) {
+    router.get(route('admin.users'), {
+        search: value.search,
+        role: value.role,
+    }, {
+        preserveScroll: true,
+        replace: true,
+    })
+}, 500))
 </script>
 <template>
     <AdminLayout title="Users">
@@ -67,7 +79,6 @@ const props = defineProps({
                 </template>
             </Table>
         </div>
-
     </AdminLayout>
 </template>
 

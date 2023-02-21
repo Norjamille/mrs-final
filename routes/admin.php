@@ -24,6 +24,10 @@ Route::prefix('admin/puroks')
 ->middleware(['auth', 'role:Admin'])
 ->group(function () {
     Route::get('/', 'index')->name('admin.puroks');
+    Route::get('/create', 'create')->name('admin.puroks.create');
+    Route::post('/', 'store')->name('admin.puroks.store');
+    Route::get('/{purok}/edit', 'edit')->name('admin.puroks.edit');
+    Route::patch('/{purok}/update', 'update')->name('admin.puroks.update');
 });
 
 Route::prefix('admin/reports')
