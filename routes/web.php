@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,15 @@ Route::get('/dashboard', function () {
         abort(403);
     }
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/account', function (Request $request) {
+    return Inertia::render('Account/Index',[
+        'isAdmin'=>auth()->user()->hasRole('Admin'),
+        'isMidwife'=>auth()->user()->hasRole('Midwife'),
+        'isPatient'=>auth()->user()->hasRole('Patient'),
+    ]);
+})->middleware(['auth', 'verified'])->name('account');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
