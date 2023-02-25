@@ -19,6 +19,8 @@
     },
     "dependencies": {
         "@heroicons/vue": "^2.0.15",
-        "@vueuse/core": "^9.12.0"
+        "@vueuse/core": "^9.12.0",
+        "sass": "^1.58.3",
+        "vue3-html2pdf": "^1.1.2"
     }
 }

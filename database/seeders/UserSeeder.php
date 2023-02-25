@@ -36,5 +36,13 @@ class UserSeeder extends Seeder
         // Assign role to user
         $midwife->assignRole('Midwife');
         //
+
+        // admin account
+        // email: admin@gmail.com
+        // password: password
+
+        // midwife account
+        // email: ellacruz@example.com
+        // password: password
     }
 }

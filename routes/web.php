@@ -23,7 +23,7 @@ Route::get('/', function () {
     } elseif (auth()->user()->hasRole('Midwife')) {
         return redirect()->route('midwife.dashboard');
     } else {
-        abort(403);
+       return redirect()->route('patient.dashboard');
     }
 })->middleware(['auth']);
 
@@ -33,10 +33,15 @@ Route::get('/dashboard', function () {
     } elseif (auth()->user()->hasRole('Midwife')) {
         return redirect()->route('midwife.dashboard');
     } else {
-        abort(403);
+        return redirect()->route('patient.dashboard');
     }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::controller(\App\Http\Controllers\Patient\DashboardController::class)
+->prefix('/patient')->middleware(["auth","role:Patient"])->group(function(){
+    Route::get('/','index')->name('patient.dashboard');
+});
 
 Route::get('/account', function (Request $request) {
     return Inertia::render('Account/Index',[

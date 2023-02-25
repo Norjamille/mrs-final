@@ -36,7 +36,7 @@ class PatientService
             'email' => $email,
             'password' => bcrypt('password'),
         ]);
-
+        $user->assignRole('Patient');
         return $user;
     }
 

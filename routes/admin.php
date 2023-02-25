@@ -35,4 +35,10 @@ Route::prefix('admin/reports')
 ->middleware(['auth', 'role:Admin'])
 ->group(function () {
     Route::get('/', 'index')->name('admin.reports');
+    Route::get('/per-purok', 'perPurok')->name('admin.reports.perPurok');
+    Route::get('/per-gender', 'perGender')->name('admin.reports.perGender');
+    Route::get('/per-delivery-type', 'perDeliveryType')->name('admin.reports.perDeliveryType');
+    Route::get('/list-of-preganant-patient', 'listOfPregnant')->name('admin.reports.listOfPregnant');
+    Route::get('/list-of-infants', 'listOfInfants')->name('admin.reports.listOfInfants');
+
 });
