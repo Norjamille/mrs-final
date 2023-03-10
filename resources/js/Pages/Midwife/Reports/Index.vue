@@ -1,13 +1,62 @@
 <script setup>
 import MidwifeLayout from '@/Layouts/MidwifeLayout.vue';
-</script>
+import { Link } from '@inertiajs/vue3';
 
+const tabs = [
+    {
+        title: 'Per Purok',
+        description: 'Generate reports for all pregnant patient in every purok of Biwang',
+        route: '/per-purok/reports'
+    },
+    {
+        title: 'Per Gender',
+        description: 'Generate reports for all list of infants per gender',
+        route: '/per-gender/report'
+    },
+    {
+        title: 'Per Delivery Type',
+        description: 'Generate reports for number of all patient undetake a specific delivery type',
+        route: '/per-delivery-type/reports'
+    },
+    {
+        title: ' List of Pregnant',
+        description: ' Generate reports for list of all pregnant woman',
+        route: route('midwife.reports.listOfPregnant')
+    },
+    {
+        title: 'List of Infants',
+        description: '  Generate reports for list of all infants',
+        route: route('midwife.reports.listOfInfants')
+    },
+    {
+        title: 'List of Schedules',
+        description: 'Generate reports for list of all schedules',
+        route: route('midwife.reports.listOfSchedules')
+    },
+    {
+        title: 'Number of Vaccinated Infants',
+        description: 'Generate reports for number of maccinated infants',
+        route: '/vaccinated/reports'
+    }
+]
+</script>
 <template>
     <MidwifeLayout title="Reports">
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis harum obcaecati, repellendus voluptatibus
-            expedita deleniti impedit, quia, aspernatur itaque porro iusto consequatur sint optio. Non eius reiciendis
-            aliquid ipsam libero.
+        <div class="grid grid-cols-4 gap-4">
+            <div v-for="(tab, index) in tabs" :key="index" class="p-3 bg-white border rounded-xl ">
+                <h1 class="font-semibold text-rose-500">
+                    {{ tab.title }}
+                </h1>
+                <p class="text-sm text-gray-600">
+                    {{ tab.description }}
+                </p>
+                <div class="pt-4">
+                    <a :href="tab.route" target="_blank" class="px-3 py-1.5 text-white text-sm bg-rose-600 rounded-md">
+                        Print
+                    </a>
+                </div>
+            </div>
         </div>
     </MidwifeLayout>
 </template>
+

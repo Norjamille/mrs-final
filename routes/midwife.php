@@ -52,6 +52,10 @@ Route::prefix('midwife/infants')
 ->controller(\App\Http\Controllers\Midwife\InfantController::class)
 ->group(function () {
     Route::get('/', 'index')->name('midwife.infants');
+    Route::get('/{infant}/vaccine', 'vaccine')->name('midwife.infants.vaccine');
+    Route::get('/{infant}/add-vaccine', 'addVaccine')->name('midwife.infants.add-vaccine');
+    Route::post('/store-vaccine', 'storeVaccination')->name('midwife.infants.store-vaccine');
+
 });
 
 Route::prefix('midwife/schedules')
@@ -63,9 +67,17 @@ Route::prefix('midwife/schedules')
     Route::patch('/{checkup}/update', 'update')->name('midwife.schedules.update');
 });
 
-Route::prefix('midwife/reports')
-->middleware(['auth', 'role:Midwife'])
+
+
+Route::prefix('/midwife/reports')
 ->controller(\App\Http\Controllers\Midwife\ReportController::class)
+->middleware(['auth','role:Midwife'])
 ->group(function () {
     Route::get('/', 'index')->name('midwife.reports');
+    Route::get('/per-purok', 'perPurok')->name('midwife.reports.perPurok');
+    Route::get('/per-gender', 'perGender')->name('midwife.reports.perGender');
+    Route::get('/per-delivery-type', 'perDeliveryType')->name('midwife.reports.perDeliveryType');
+    Route::get('/list-of-preganant-patient', 'listOfPregnant')->name('midwife.reports.listOfPregnant');
+    Route::get('/list-of-infants', 'listOfInfants')->name('midwife.reports.listOfInfants');
+    Route::get('/list-of-schedules', 'listOfSchedules')->name('midwife.reports.listOfSchedules');
 });

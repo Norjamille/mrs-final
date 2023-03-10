@@ -4,11 +4,7 @@
       <PrimaryButton @click="printContent">Print</PrimaryButton>
     </div>
     <div id="pritable">
-      <div style="text-align: center; font-size: 20pt; font-weight: bold;">Maternal Recording System in Barangay Biwang,
-        Bagumbayan Sultan Kudarat</div>
-      <p style="font-size: 1.25rem; font-weight: 600; text-align: center; margin-top: 20px;">
-        List of Pregnant Patients
-      </p>
+      <ReportHeader report-title=" List of Pregnant Patients" />
       <table style="border-collapse: collapse; width: 100%; margin-top: 20px;">
         <tr style="background-color: #D9D9D9; height: 18.75pt;">
           <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Patient</th>
@@ -31,10 +27,12 @@
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import { onMounted } from 'vue';
-
+import ReportHeader from "@/Components/ReportHeader.vue"
 const props = defineProps({
   pregnancies: Object,
 })
+
+
 
 function printContent() {
   const printableContent = document.getElementById('pritable').innerHTML;

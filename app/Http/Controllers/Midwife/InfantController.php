@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Midwife;
 
 use App\Http\Controllers\Controller;
 use App\Models\Infant;
+use App\Models\Vaccination;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Request;
+use \Illuminate\Http\Request as FormRequest;
 use Inertia\Inertia;
 
 class InfantController extends Controller
@@ -29,6 +31,41 @@ class InfantController extends Controller
                         'date_of_birth' => Carbon::parse($infant->date_of_birth)->format('M d, Y h:m:s A'),
                     ]),
             'filters' => Request::only(['search', 'status']),
+        ]);
+    }
+
+    public function vaccine(Infant $infant)
+    {
+        return Inertia::render('Midwife/Infants/Vaccine',[
+            'infant'=>$infant,
+            'vaccinations'=>$infant->vaccinations,
+            'filters'=>Request::only(['search'])
+        ]);
+    }
+
+    public function addVaccine(Infant $infant)
+    {
+        return Inertia::render('Midwife/Infants/AddVaccine',[
+            'infant'=>$infant,
+            'vaccines'=>Vaccination::VACCINES,
+            'months' => Vaccination::MONTHS
+        ]);
+    }
+
+    public function storeVaccination(FormRequest $request)
+    {
+        $data = $request->validate([
+            'infant_id'=>'required',
+            'vaccine'=>'required',
+            'months_after_birth'=>'required',
+            'date_at'=>'required'
+        ]);
+
+        Vaccination::create($data);
+
+        return redirect()->route('midwife.infants')->with('toast',[
+            'type'=>'success',
+            'message'=>'Record has been added'
         ]);
     }
 }

@@ -1,5 +1,5 @@
 <template>
-  <AdminLayout title="Per Gender">
+  <MidwifeLayout title="Per Gender">
     <div class="flex justify-end mb-5">
       <PrimaryButton @click="printContent">Print</PrimaryButton>
     </div>
@@ -28,12 +28,12 @@
         </tr>
       </table>
     </div>
-  </AdminLayout>
+  </MidwifeLayout>
 </template>
 
 <script setup>
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import AdminLayout from '@/Layouts/AdminLayout.vue';
+import MidwifeLayout from '@/Layouts/MidwifeLayout.vue';
 import { onMounted } from 'vue';
 import ReportHeader from "@/Components/ReportHeader.vue"
 const props = defineProps({

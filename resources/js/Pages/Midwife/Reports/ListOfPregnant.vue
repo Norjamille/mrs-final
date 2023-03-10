@@ -1,37 +1,35 @@
 <template>
-  <AdminLayout title="Per Purok">
+  <MidwifeLayout title="Per Purok">
     <div class="flex justify-end mb-5">
       <PrimaryButton @click="printContent">Print</PrimaryButton>
     </div>
     <div id="pritable">
-      <ReportHeader report-title="List of Infants" />
+      <ReportHeader report-title=" List of Pregnant Patients" />
       <table style="border-collapse: collapse; width: 100%; margin-top: 20px;">
         <tr style="background-color: #D9D9D9; height: 18.75pt;">
-          <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Name</th>
-          <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Gender</th>
+          <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Patient</th>
+          <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Address</th>
         </tr>
-        <tr v-for="(infant, index) in props.infants" :key="infant.id">
+        <tr v-for="(pregnancy, index) in props.pregnancies" :key="pregnancy.id">
           <td style="border: 1px solid #000000; padding: 0.9375rem;">
-            {{ infant.first_name }} {{ infant.last_name }}
+            {{ pregnancy.patient.first_name }} {{ pregnancy.patient.last_name }}
           </td>
           <td style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">
-            {{ infant.gender }}
+            {{ pregnancy.patient.address }}
           </td>
         </tr>
       </table>
     </div>
-
-  </AdminLayout>
+  </MidwifeLayout>
 </template>
 
 <script setup>
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import AdminLayout from '@/Layouts/AdminLayout.vue';
+import MidwifeLayout from '@/Layouts/MidwifeLayout.vue';
 import { onMounted } from 'vue';
 import ReportHeader from "@/Components/ReportHeader.vue"
-
 const props = defineProps({
-  infants: Object,
+  pregnancies: Object,
 })
 
 

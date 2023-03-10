@@ -14,13 +14,17 @@
         "lodash": "^4.17.19",
         "postcss": "^8.4.18",
         "tailwindcss": "^3.2.1",
+        "unplugin-vue-define-options": "^1.2.3",
         "vite": "^4.0.0",
         "vue": "^3.2.41"
     },
     "dependencies": {
+        "@formkit/auto-animate": "^1.0.0-beta.6",
         "@heroicons/vue": "^2.0.15",
         "@vueuse/core": "^9.12.0",
+        "chart.js": "^4.2.1",
         "sass": "^1.58.3",
+        "vue-chartjs": "^5.2.0",
         "vue3-html2pdf": "^1.1.2"
     }
 }

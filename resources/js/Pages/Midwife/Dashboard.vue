@@ -1,10 +1,25 @@
 <script setup>
 import MidwifeLayout from '@/Layouts/MidwifeLayout.vue';
+import Svg from "@/images/Frame.svg"
 </script>
 
 <template>
     <MidwifeLayout title="Dashboard">
-        <div>
+        <div class="grid space-y-5">
+            <div class="relative grid w-full p-4 bg-white border rounded-2xl">
+                <h1>
+                    Hello 👋, <span class="text-xl font-bold">{{ $page.props.auth.user.name }}</span>
+                </h1>
+                <span class="text-2xl font-bold uppercase text-rose-500">
+                    Maternal Recording System
+                </span>
+                <span class="text-gray-600">
+                    Barangay Biwang, Bagumbayan Sultan Kudarat Philippines
+                </span>
+                <div class="absolute -top-7 right-3">
+                    <img :src="Svg" class="h-44" alt="">
+                </div>
+            </div>
             <div class="flex flex-col">
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     <div class="flex items-start p-4 bg-white border shadow-sm rounded-xl">

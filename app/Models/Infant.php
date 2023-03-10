@@ -15,4 +15,9 @@ class Infant extends Model
     {
         return $this->belongsTo(Pregnancy::class);
     }
+
+    public function vaccinations()
+    {
+        return $this->hasMany(Vaccination::class);
+    }
 }

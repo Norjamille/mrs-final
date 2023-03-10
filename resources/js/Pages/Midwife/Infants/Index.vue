@@ -9,7 +9,7 @@ import TextInput from '@/Components/TextInput.vue';
 import Filter from '@/Components/Filter.vue';
 import SelectInput from '@/Components/SelectInput.vue';
 import PrimaryButtonLink from '@/Components/PrimaryButtonLink.vue';
-import { PencilSquareIcon } from '@heroicons/vue/24/outline'
+import { PencilSquareIcon, ClipboardDocumentListIcon } from '@heroicons/vue/24/outline'
 import debounce from 'lodash/debounce'
 import { router } from '@inertiajs/core';
 
@@ -52,10 +52,22 @@ const props = defineProps({
                     <Tcell>{{ infant.gender }} </Tcell>
                     <Tcell>{{ infant.date_of_birth }} </Tcell>
                     <Tcell>
-                        <TableButton :href="route('midwife.patients.infant.edit', { infant: infant.id })">
-                            <PencilSquareIcon class="h-5 mr-2" />
-                            Edit
-                        </TableButton>
+                        <div class="flex items-center space-x-1">
+                            <TableButton :href="route('midwife.patients.infant.edit', { infant: infant.id })">
+                                <PencilSquareIcon class="h-5 mr-2" />
+                                Edit
+                            </TableButton>
+                            <span class="text-gray-200">|</span>
+                            <TableButton :href="route('midwife.infants.vaccine', { infant: infant.id })">
+                                <ClipboardDocumentListIcon class="h-5 mr-2" />
+                                Vaccinations
+                            </TableButton>
+                            <span class="text-gray-200">|</span>
+                            <TableButton :href="route('midwife.infants.add-vaccine', { infant: infant.id })">
+                                <PencilSquareIcon class="h-5 mr-2" />
+                                Add Vaccine
+                            </TableButton>
+                        </div>
                     </Tcell>
                 </tr>
                 <EmptyTable v-if="props.infants.data.length == 0" colspan="4" />

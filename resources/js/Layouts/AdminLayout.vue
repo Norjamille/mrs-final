@@ -9,30 +9,29 @@ let props = defineProps({
 </script>
 
 <template>
-
     <Head>
-        <title>
-            {{ props.title }} | MRS
-        </title>
-    </Head>
-    <div>
-        <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-        <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
+    <title>
+        {{ props.title }} | MRS
+    </title>
+</Head>
+<div>
+    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+    <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
             <!--
-      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+          Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
-      Entering: "transition-opacity ease-linear duration-300"
+          Entering: "transition-opacity ease-linear duration-300"
         From: "opacity-0"
         To: "opacity-100"
       Leaving: "transition-opacity ease-linear duration-300"
         From: "opacity-100"
         To: "opacity-0"
     -->
-            <div class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
+        <div class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
 
-            <div class="fixed inset-0 z-40 flex">
+        <div class="fixed inset-0 z-40 flex">
                 <!--
-        Off-canvas menu, show/hide based on off-canvas menu state.
+            Off-canvas menu, show/hide based on off-canvas menu state.
 
         Entering: "transition ease-in-out duration-300 transform"
           From: "-translate-x-full"
@@ -41,17 +40,17 @@ let props = defineProps({
           From: "translate-x-0"
           To: "-translate-x-full"
       -->
-                <div class="relative flex w-full max-w-xs flex-1 flex-col bg-rose-700 pt-5 pb-4">
+            <div class="relative flex w-full max-w-xs flex-1 flex-col bg-rose-700 pt-5 pb-4">
                     <!--
-          Close button, show/hide based on off-canvas menu state.
+              Close button, show/hide based on off-canvas menu state.
 
-          Entering: "ease-in-out duration-300"
-            From: "opacity-0"
-            To: "opacity-100"
-          Leaving: "ease-in-out duration-300"
-            From: "opacity-100"
-            To: "opacity-0"
-        -->
+              Entering: "ease-in-out duration-300"
+                From: "opacity-0"
+                To: "opacity-100"
+              Leaving: "ease-in-out duration-300"
+                From: "opacity-100"
+                To: "opacity-0"
+            -->
                     <div class="absolute top-0 right-0 -mr-12 pt-2">
                         <button type="button"
                             class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">

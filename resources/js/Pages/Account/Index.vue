@@ -4,6 +4,8 @@ import DeleteUserForm from '../Profile/Partials/DeleteUserForm.vue';
 import UpdatePasswordForm from '../Profile/Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from '../Profile/Partials/UpdateProfileInformationForm.vue';
 import MidwifeLayout from '@/Layouts/MidwifeLayout.vue';
+import PatientLayout from '@/Layouts/PatientLayout.vue';
+
 import { ref } from 'vue';
 
 const props = defineProps({
@@ -28,12 +30,12 @@ if (props.isAdmin) {
 } else if (props.isMidwife) {
   component.value = MidwifeLayout;
 } else if (props.isPatient) {
-  component.value = "div";
+  component.value = PatientLayout;
 }
 </script>
 <template>
   <component :is="component" title="Profile">
-    <div>
+    <div class="w-full">
       <div class="mx-auto space-y-6 ">
         <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
           <UpdateProfileInformationForm class="max-w-xl" />

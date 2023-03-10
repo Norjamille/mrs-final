@@ -6,13 +6,15 @@
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <h1 class="text-lg font-semibold tracking-wider text-white">
-                MRS
-              </h1>
+              <div class="flex items-center flex-shrink-0 px-4 space-x-4">
+                <div class="p-3 bg-white rounded-full">
+                  <img class="w-auto h-5" :src="logo" alt="Your Company">
+                </div>
+                <span class="text-xl font-bold tracking-widest text-white">M.R.S</span>
+              </div>
             </div>
             <div class="hidden md:block">
               <div class="flex items-baseline ml-10 space-x-4">
-
               </div>
             </div>
           </div>
@@ -29,8 +31,8 @@
                     </div>
                   </template>
                   <template #content>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                      id="user-menu-item-0">Your Profile</a>
+                    <Link href="/account" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                      id="user-menu-item-0">Manage Account</Link>
                     <DropdownLink :href="route('logout')" method="post" as="button">
                       Log Out
                     </DropdownLink>
@@ -65,7 +67,9 @@
       </div>
     </nav>
     <main>
-      <slot />
+      <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8 ">
+        <slot />
+      </div>
     </main>
   </div>
 </template>
@@ -75,6 +79,8 @@ import { Head } from '@inertiajs/vue3';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import { ChevronDownIcon } from '@heroicons/vue/24/solid';
+import { Link } from '@inertiajs/vue3';
+import logo from "@/images/logo.png"
 const props = defineProps({
   title: String
 })

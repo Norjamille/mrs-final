@@ -30,9 +30,9 @@ Route::prefix('admin/puroks')
     Route::patch('/{purok}/update', 'update')->name('admin.puroks.update');
 });
 
-Route::prefix('admin/reports')
+Route::prefix('reports')
 ->controller(\App\Http\Controllers\Admin\ReportController::class)
-->middleware(['auth', 'role:Admin'])
+->middleware(['auth','role:Admin'])
 ->group(function () {
     Route::get('/', 'index')->name('admin.reports');
     Route::get('/per-purok', 'perPurok')->name('admin.reports.perPurok');
@@ -40,5 +40,5 @@ Route::prefix('admin/reports')
     Route::get('/per-delivery-type', 'perDeliveryType')->name('admin.reports.perDeliveryType');
     Route::get('/list-of-preganant-patient', 'listOfPregnant')->name('admin.reports.listOfPregnant');
     Route::get('/list-of-infants', 'listOfInfants')->name('admin.reports.listOfInfants');
-
+    Route::get('/list-of-schedules', 'listOfSchedules')->name('admin.reports.listOfSchedules');
 });
