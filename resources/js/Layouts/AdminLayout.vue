@@ -18,9 +18,9 @@ let props = defineProps({
     <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
     <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
             <!--
-          Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+              Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
-          Entering: "transition-opacity ease-linear duration-300"
+              Entering: "transition-opacity ease-linear duration-300"
         From: "opacity-0"
         To: "opacity-100"
       Leaving: "transition-opacity ease-linear duration-300"
@@ -31,7 +31,7 @@ let props = defineProps({
 
         <div class="fixed inset-0 z-40 flex">
                 <!--
-            Off-canvas menu, show/hide based on off-canvas menu state.
+                Off-canvas menu, show/hide based on off-canvas menu state.
 
         Entering: "transition ease-in-out duration-300 transform"
           From: "-translate-x-full"
@@ -40,40 +40,40 @@ let props = defineProps({
           From: "translate-x-0"
           To: "-translate-x-full"
       -->
-            <div class="relative flex w-full max-w-xs flex-1 flex-col bg-rose-700 pt-5 pb-4">
+            <div class="relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-rose-700">
                     <!--
-              Close button, show/hide based on off-canvas menu state.
+                  Close button, show/hide based on off-canvas menu state.
 
-              Entering: "ease-in-out duration-300"
-                From: "opacity-0"
-                To: "opacity-100"
-              Leaving: "ease-in-out duration-300"
-                From: "opacity-100"
-                To: "opacity-0"
-            -->
-                    <div class="absolute top-0 right-0 -mr-12 pt-2">
+                  Entering: "ease-in-out duration-300"
+                    From: "opacity-0"
+                    To: "opacity-100"
+                  Leaving: "ease-in-out duration-300"
+                    From: "opacity-100"
+                    To: "opacity-0"
+                -->
+                    <div class="absolute top-0 right-0 pt-2 -mr-12">
                         <button type="button"
-                            class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                            class="flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                             <span class="sr-only">Close sidebar</span>
                             <!-- Heroicon name: outline/x-mark -->
-                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
 
-                    <div class="flex flex-shrink-0 items-center px-4">
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=300"
+                    <div class="flex items-center flex-shrink-0 px-4">
+                        <img class="w-auto h-8" src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=300"
                             alt="Your Company">
                     </div>
-                    <div class="mt-5 h-0 flex-1 overflow-y-auto">
-                        <nav class="space-y-1 px-2">
+                    <div class="flex-1 h-0 mt-5 overflow-y-auto">
+                        <nav class="px-2 space-y-1">
                             <!-- Current: "bg-rose-800 text-white", Default: "text-rose-100 hover:bg-rose-600" -->
                             <a href="#"
-                                class="bg-rose-800 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                                class="flex items-center px-2 py-2 text-base font-medium text-white rounded-md bg-rose-800 group">
                                 <!-- Heroicon name: outline/home -->
-                                <svg class="mr-4 h-6 w-6 flex-shrink-0 text-rose-300" xmlns="http://www.w3.org/2000/svg"
+                                <svg class="flex-shrink-0 w-6 h-6 mr-4 text-rose-300" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -83,9 +83,9 @@ let props = defineProps({
                             </a>
 
                             <a href="#"
-                                class="text-rose-100 hover:bg-rose-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                                class="flex items-center px-2 py-2 text-base font-medium rounded-md text-rose-100 hover:bg-rose-600 group">
                                 <!-- Heroicon name: outline/users -->
-                                <svg class="mr-4 h-6 w-6 flex-shrink-0 text-rose-300" xmlns="http://www.w3.org/2000/svg"
+                                <svg class="flex-shrink-0 w-6 h-6 mr-4 text-rose-300" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -95,9 +95,9 @@ let props = defineProps({
                             </a>
 
                             <a href="#"
-                                class="text-rose-100 hover:bg-rose-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                                class="flex items-center px-2 py-2 text-base font-medium rounded-md text-rose-100 hover:bg-rose-600 group">
                                 <!-- Heroicon name: outline/folder -->
-                                <svg class="mr-4 h-6 w-6 flex-shrink-0 text-rose-300" xmlns="http://www.w3.org/2000/svg"
+                                <svg class="flex-shrink-0 w-6 h-6 mr-4 text-rose-300" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -107,9 +107,9 @@ let props = defineProps({
                             </a>
 
                             <a href="#"
-                                class="text-rose-100 hover:bg-rose-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                                class="flex items-center px-2 py-2 text-base font-medium rounded-md text-rose-100 hover:bg-rose-600 group">
                                 <!-- Heroicon name: outline/calendar -->
-                                <svg class="mr-4 h-6 w-6 flex-shrink-0 text-rose-300" xmlns="http://www.w3.org/2000/svg"
+                                <svg class="flex-shrink-0 w-6 h-6 mr-4 text-rose-300" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -119,9 +119,9 @@ let props = defineProps({
                             </a>
 
                             <a href="#"
-                                class="text-rose-100 hover:bg-rose-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                                class="flex items-center px-2 py-2 text-base font-medium rounded-md text-rose-100 hover:bg-rose-600 group">
                                 <!-- Heroicon name: outline/inbox -->
-                                <svg class="mr-4 h-6 w-6 flex-shrink-0 text-rose-300" xmlns="http://www.w3.org/2000/svg"
+                                <svg class="flex-shrink-0 w-6 h-6 mr-4 text-rose-300" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -131,9 +131,9 @@ let props = defineProps({
                             </a>
 
                             <a href="#"
-                                class="text-rose-100 hover:bg-rose-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                                class="flex items-center px-2 py-2 text-base font-medium rounded-md text-rose-100 hover:bg-rose-600 group">
                                 <!-- Heroicon name: outline/chart-bar -->
-                                <svg class="mr-4 h-6 w-6 flex-shrink-0 text-rose-300" xmlns="http://www.w3.org/2000/svg"
+                                <svg class="flex-shrink-0 w-6 h-6 mr-4 text-rose-300" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -145,7 +145,7 @@ let props = defineProps({
                     </div>
                 </div>
 
-                <div class="w-14 flex-shrink-0" aria-hidden="true">
+                <div class="flex-shrink-0 w-14" aria-hidden="true">
                     <!-- Dummy element to force sidebar to shrink to fit close icon -->
                 </div>
             </div>
@@ -153,50 +153,29 @@ let props = defineProps({
 
         <!-- Static sidebar for desktop -->
         <AdminSidebar />
-        <div class="flex flex-1 flex-col md:pl-64">
-            <div class="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
+        <div class="flex flex-col flex-1 md:pl-64">
+            <div class="sticky top-0 z-10 flex flex-shrink-0 h-16 bg-white shadow">
                 <button type="button"
-                    class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500 md:hidden">
+                    class="px-4 text-gray-500 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500 md:hidden">
                     <span class="sr-only">Open sidebar</span>
                     <!-- Heroicon name: outline/bars-3-bottom-left -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
                     </svg>
                 </button>
-                <div class="flex flex-1 justify-between px-4">
-                    <div class="flex flex-1">
-                        <form class="flex w-full md:ml-0" action="#" method="GET">
-                            <label for="search-field" class="sr-only">Search</label>
-                            <div class="relative w-full text-gray-400 focus-within:text-gray-600">
-                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center">
-                                    <!-- Heroicon name: mini/magnifying-glass -->
-                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                        fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <input id="search-field"
-                                    class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
-                                    placeholder="Search" type="search" name="search">
-                            </div>
-                        </form>
+                <div class="flex justify-between flex-1 px-4">
+                    <div class="flex items-center flex-1">
+                        <span class="text-xl font-semibold uppercase text-rose-500">
+                            Maternal Recording System
+                        </span>
                     </div>
-                    <div class="ml-4 flex items-center md:ml-6">
-                        <button type="button"
-                            class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">
-                            <span class="sr-only">View notifications</span>
-                            <!-- Heroicon name: outline/bell -->
-                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                            </svg>
-                        </button>
+                    <div class="flex items-center ml-4 md:ml-6">
                         <UserDropdown />
+                        <span class="ml-3 text-gray-600">
+                            {{ $page.props.auth.user.name }}
+                        </span>
                     </div>
                 </div>
             </div>

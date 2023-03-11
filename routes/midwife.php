@@ -80,4 +80,5 @@ Route::prefix('/midwife/reports')
     Route::get('/list-of-preganant-patient', 'listOfPregnant')->name('midwife.reports.listOfPregnant');
     Route::get('/list-of-infants', 'listOfInfants')->name('midwife.reports.listOfInfants');
     Route::get('/list-of-schedules', 'listOfSchedules')->name('midwife.reports.listOfSchedules');
+    Route::get('/{patient}/information', 'patientInfo')->name('midwife.reports.patientInfo');
 });

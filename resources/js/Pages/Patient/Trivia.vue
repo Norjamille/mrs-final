@@ -1,9 +1,179 @@
 <script setup>
+import Trivia from '@/Components/Trivia.vue';
 import PatientLayout from '@/Layouts/PatientLayout.vue';
+
+const pageTitle = " May iba't Ibang pamamaraan ng plannin,Alin kaya ang bagay sa amin ?"
+
 </script>
 <template>
   <PatientLayout title="About Pregnancy">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint hic assumenda repudiandae eum ipsa officiis sit
-    consectetur maiores earum architecto veritatis nihil deleniti, asperiores quod expedita nesciunt quaerat facere non.
+    <div class="p-2 mb-4">
+      <span class="text-2xl font-bold text-rose-600">
+        {{ pageTitle }}
+      </span>
+    </div>
+    <Trivia title="STANDARTD DAYS METHOD (Cycle Beads)"
+      img="https://static.wixstatic.com/media/4bf6d1_a4dee462217d46c1b7932642a94686c7~mv2_d_1962_1305_s_2.jpg/v1/fill/w_640,h_424,al_t,q_80,usm_0.66_1.00_0.01,enc_auto/4bf6d1_a4dee462217d46c1b7932642a94686c7~mv2_d_1962_1305_s_2.jpg">
+      <p>
+        Ito ay isang natural na pamamaraan
+        kung saan ginagamit ang cycle beads
+        upang matukoy ang panahong fertile
+        ang babae.
+        Ito ay angkop sa mga babaeng may
+        regular na siklo (26-32 days ang haba).
+      </p>
+    </Trivia>
+
+    <Trivia title="LACTATIONAL AMENORRHEA METHOD (LAM)"
+      img="https://cdn.cdnparenting.com/articles/2018/01/627416096-H.jpg">
+      <p>
+        Ang LAM ay isang natural na pamamaraan na
+        maaring gamitin ng mga babaeng nagpapasuso.
+        Kailangan siguraduhin ang mga sumusunod:
+      <ul>
+        <li> <span class="text-rose-600">•</span> Wala pang anim na buwan ang sanggol.</li>
+        <li> <span class="text-rose-600"> • </span>Hindi pa bumabalik ang regla.</li>
+        <li> <span class="text-rose-600">•</span> Madalas magpasuso araw-gabi at tanging
+          gatas lamang ng ina ang ibinibigay sa sanggol.</li>
+      </ul>
+      </p>
+    </Trivia>
+
+    <Trivia title="SYMPTOMS-BASED METHOD"
+      img="https://i0.wp.com/maternitynest.com/wp-content/uploads/2016/09/bbtexample.gif?resize=455%2C270">
+      <p>
+        Sa mga pamamaraang ito (Cervical MUCUS
+        Method at Sympto-thermal Methods),
+        binabantayan ang temperatura, mucus,
+        at pagkirot ng puson ng babae.
+        Ito ay angkop gamitin ng karamihan,
+        maliban sa:
+      <ul>
+        <li> <span class="text-rose-600">•</span> Mga babaeng katatapos lang makunan.</li>
+        <li> <span class="text-rose-600"> • </span> Mga babaeng nagbabago na ang siklo
+          ng regla dahil napapalapit na sa menopause.</li>
+        <li> <span class="text-rose-600">•</span> Mga babaeng may kundisyon kung saan
+          ang temperatura ng katawan ay natural
+          na tumataas.</li>
+      </ul>
+      </p>
+    </Trivia>
+
+
+    <Trivia title="PILLS"
+      img="https://i0.wp.com/post.healthline.com/wp-content/uploads/2021/12/female-holding-birth-control-pack-1296-728-header.jpg?w=1155&h=1528">
+      <p>
+        Ang pills ay uri ng hormonal contraceptive
+        na iniinom araw-araw sa takdang oras para
+        masiguradong epektibo ito.
+        <br>
+        Ito ay angkop sa mga mag-partner
+        na gustong mag-agwat ng anak gamit
+        ang pansamantalang paraan na maaaring
+        itigil kahit anong oras.
+        <br>
+        Ito ay maaaring gamitin ng karamihan.
+        maliban na lang ang mga babaeng
+        natukoy na may kanser sa suso.
+      </p>
+    </Trivia>
+
+
+    <Trivia title="CONDOMS"
+      img="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/323089_1100-800x825.jpg">
+      <p>
+        Ito oy isinusuot ng lalaki sa kanyang matigas
+        na ari bago tuluyang makipagtatik.
+        <br>
+        Ito ay ongkop so:
+        <br>
+        • Mga mog-padner na may mataas
+        no posibilidad magkaroon ng STD.
+        <br>
+        • Mga may kalagayang pangkalvsugan at hindi
+        mooaring gumamit ng mga hormonal methods.
+        <br>
+        • Mga lalaking katatapos lamang
+        magpa-vasectomy at naghihintay na maubos
+        muna ang semilya.
+        <br>
+        Huwog garnitin kung may allergy sa latex.
+      </p>
+    </Trivia>
+
+    <Trivia title="PROGESTlN-ONLY INJECTABLE"
+      img="https://toolkits.knowledgesuccess.org/sites/default/files/styles/large/public/470-2.jpg?itok=0ARwBVSe">
+      <p>
+        Ito ay uri ng hormonal contraceptive
+        na iniineksyon sa babae kada tatlong
+        buwan para masiguradong epektibo ito.
+        <br>
+        Ito ay maaaring gamitin ng karamihan,
+        maliban na lang ang mga babaeng natukoy
+        na may kanser sa suso.
+      </p>
+    </Trivia>
+
+    <Trivia title="PROGESTIN SUBDERMAL IMPLANT" img="https://steptohealth.com/wp-content/uploads/2016/11/1-norplant.jpg">
+      <p>
+        Ito ay isong uri ng hormonal contraceptive
+        kung saan ang isang malambot na vinyl rod
+        no mala-palito ng posporo ang liit ay inilalagay
+        sa ilafirn ng balat ng braso ng babae.
+        <br>
+        Ito ay mabisa hanggang 3 taon.
+        <br>
+        Ito oy maaaring gamitin ng karamihan,
+        moriban na lang ang mga babaeng natukoy
+        na may kanser sa suso.
+      </p>
+    </Trivia>
+
+    <Trivia title="INTRA-UTERINE DEVICE IUD)"
+      img="data:image/jpeg;base64,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">
+      <p>
+        Ito ay isang malambot na plastic na inilalagay
+        sa matris upang hadlangan ang pagsasanib
+        ng punlay at itlog.
+        <br>
+        Epektibo ito hanggang 12 taon.
+        <br>
+        Ito ay angkop para sa mga babaeng:
+        <br>
+        • Naghahanap ng pangmatagalang pamamaraan
+        na maaaring itigil ano mang oras.
+        <br>
+        • Nagpapasuso ng sanggol.
+        <br>
+        • May sapat na bilang na ng anak pero hindi nais
+        magpa-ligate.
+      </p>
+    </Trivia>
+
+    <Trivia title="BILATERAL TUBAL LIGATION (BTL) PARA SA BABAE"
+      img="data:image/png;base64,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">
+      <p>
+        Ito ay isang permanenteng pamamaraan kung
+        saan tinatalian at pinuputol ang dalawang
+        anurang itlog (fallopian tubes).
+        <br>
+        Ito ay angkop sa mga babaeng ayaw nong
+        madagdagan pa ang bilang ng anak.
+        Kailangan lamang siguraduhing Siya ay hindi
+        buntis bago gawin ito.
+      </p>
+    </Trivia>
+
+    <Trivia title="NO-SCALPEL VASECTOMY (NSV) PARA SA LALAKI"
+      img="data:image/jpeg;base64,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">
+      <p>
+        Ito ay isang permanenteng pamamaraan kung
+        saan tinatatian at pinuputol ang dalawang
+        anurang punlay (vas deferens).
+        <br>
+        Ito ay angkop sa mga lalaking ayaw nang
+        madagdagan pa ang bilang ng anak.
+      </p>
+    </Trivia>
   </PatientLayout>
 </template>

@@ -9,6 +9,7 @@ use App\Models\Infant;
 use App\Models\CheckUp;
 use App\Models\Pregnancy;
 use App\Http\Controllers\Controller;
+use App\Models\Patient;
 use Illuminate\Support\Facades\Request;
 
 class ReportController extends Controller
@@ -98,6 +99,26 @@ class ReportController extends Controller
                             ];
                         }),
             'filters'=>Request::only(['scope'])
+        ]);
+    }
+
+    public function patientInfo(Patient $patient)
+    {
+        $types =  Pregnancy::DELIVERY_TYPE;
+        return Inertia::render('Midwife/Reports/PatientAndInfant',[
+            'patient'=>$patient->load('purok'),
+            'pregnancies'=>Pregnancy::where('patient_id',$patient->id)
+                ->with('infants')
+                ->get()
+                ->map(function($pregnancy)use($types){
+                    return [
+                        'id'=>$pregnancy->id,
+                        'delivery_type'=>$pregnancy->delivery_type,
+                        'delivery_date'=>Carbon::parse($pregnancy->delivery_date)->format('M d, Y h:i A'),
+                        'infants'=>$pregnancy->infants
+                    ];
+             }),
+             'types'=>$types,
         ]);
     }
 }

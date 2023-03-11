@@ -9,7 +9,7 @@ import TextInput from '@/Components/TextInput.vue';
 import Filter from '@/Components/Filter.vue';
 import SelectInput from '@/Components/SelectInput.vue';
 import PrimaryButtonLink from '@/Components/PrimaryButtonLink.vue';
-import { PencilSquareIcon, ClipboardDocumentListIcon } from '@heroicons/vue/24/outline'
+import { PencilSquareIcon, ClipboardDocumentListIcon, PrinterIcon } from '@heroicons/vue/24/outline'
 import debounce from 'lodash/debounce'
 import { router } from '@inertiajs/core';
 
@@ -67,6 +67,7 @@ const props = defineProps({
                                 <PencilSquareIcon class="h-5 mr-2" />
                                 Add Vaccine
                             </TableButton>
+
                         </div>
                     </Tcell>
                 </tr>

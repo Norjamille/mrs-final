@@ -17,7 +17,8 @@ import {
     ClipboardDocumentListIcon,
     PencilSquareIcon,
     ClipboardDocumentIcon,
-    PlusIcon
+    PlusIcon,
+    PrinterIcon
 } from '@heroicons/vue/24/outline';
 
 
@@ -118,6 +119,11 @@ watch(filters, debounce(function (value) {
                                     <span class="text-red-600 animate-pulse">Record Infant </span>
                                 </TableButton>
                             </template>
+                            <span class="text-gray-200">|</span>
+                            <TableButton :href="route('midwife.reports.patientInfo', { patient: patient.id })">
+                                <PrinterIcon class="h-5 mr-2" />
+                                Print
+                            </TableButton>
                         </div>
                     </Tcell>
                 </tr>

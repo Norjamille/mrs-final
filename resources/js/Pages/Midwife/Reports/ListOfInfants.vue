@@ -20,7 +20,6 @@
         </tr>
       </table>
     </div>
-
   </MidwifeLayout>
 </template>
 
