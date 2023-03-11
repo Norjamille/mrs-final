@@ -12,6 +12,8 @@ class PatientService
         DB::beginTransaction();
         $user = $this->createAccount($form['first_name'], $form['email']);
         $user->patient()->create($form);
+
+
         DB::commit();
     }
 
@@ -47,4 +49,9 @@ class PatientService
             'email' => $email,
         ]);
     }
+
+
+    
+
+
 }

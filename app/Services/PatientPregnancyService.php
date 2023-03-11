@@ -10,6 +10,7 @@ class PatientPregnancyService
     {
         DB::beginTransaction();
         $patient->pregnancies()->create($form);
+        $this->createAutoSchedule($patient);
         DB::commit();
     }
 
@@ -19,5 +20,21 @@ class PatientPregnancyService
         DB::beginTransaction();
         $pregnancy->update($form);
         DB::commit();
+    }
+
+
+    public function createAutoSchedule($patient)
+    {
+            $current_age_of_gestation = $patient->pregnancies()->first()->age_of_gestation;
+            $remaining_check_up = 9 - $current_age_of_gestation;
+            $current_date = now();
+
+            for ($i = 1; $i <= $remaining_check_up; $i++) {
+                $current_date = $current_date->addWeeks(4);
+                $patient->checkups()->create([
+                    'date_at' => $current_date,
+                    'description' => 'Check Up No. ' . $i,
+                ]);
+            }
     }
 }
