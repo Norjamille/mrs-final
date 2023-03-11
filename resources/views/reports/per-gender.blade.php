@@ -20,9 +20,17 @@
         href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=poppins:500,600,700"
         rel="stylesheet" />
+        <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js "></script>
+        <style>
+          canvas {
+            display: block;
+            margin: auto;
+          }
+        </style>
+      
 </head>
 
-<body onload="print()" class="bg-gray-100 font-poppins">
+<body class="bg-gray-100 font-poppins">
     <div>
       <div>
         <div style="text-align: center; font-size: 20pt; font-weight: bold;">Maternal Recording System in Barangay Biwang,
@@ -59,11 +67,42 @@
           </tr>
         </table>
       </table>
+
+      <hr>
+      <div style="padding-top: 10px">
+          <canvas id="piechart"  width="400" height="400">
+
+          </canvas>
+      </div>
     </div>
     <script>
-      print(){
-        windows.print()
-      }
+   
+      document.addEventListener("DOMContentLoaded", function(event) {
+    
+        // Create the pie chart
+        const pieChart = new Chart(document.getElementById('piechart'), {
+          type: 'pie',
+          data: {
+            labels: ['Male','Female'],
+            datasets: [{
+              label: 'Patient Counts',
+              data: [{{ $male }}, {{ $female }}],
+              backgroundColor: [
+                '#FF6384',
+                '#36A2EB',
+              ]
+            }]
+          },
+          options: {
+            responsive: true
+          }
+        });
+        setTimeout(() => {
+          window.print();
+        }, 2000);
+      });
+
+    
     </script>
 </body>
 </html>
