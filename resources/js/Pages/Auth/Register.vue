@@ -25,14 +25,14 @@ const submit = () => {
     <GuestLayout>
 
         <Head title="Register" />
-        <div class="grid justify-center items-center flex-shrink-0 px-4 space-x-4">
-            <span class="text-2xl font-bold tracking-widest text-rose-600">M.R.S</span>
+        <div class="grid items-center justify-center flex-shrink-0 px-4 mb-2 space-x-4">
+            <span class="text-xl font-bold tracking-widest text-rose-600">MATERNAL DATABASE SYSTEM</span>
         </div>
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name" value="Name" />
 
-                <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus
+                <TextInput id="name" type="text" class="block w-full mt-1" v-model="form.name" required autofocus
                     autocomplete="name" />
 
                 <InputError class="mt-2" :message="form.errors.name" />
@@ -41,7 +41,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel for="email" value="Email" />
 
-                <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required
+                <TextInput id="email" type="email" class="block w-full mt-1" v-model="form.email" required
                     autocomplete="username" />
 
                 <InputError class="mt-2" :message="form.errors.email" />
@@ -50,7 +50,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
 
-                <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
+                <TextInput id="password" type="password" class="block w-full mt-1" v-model="form.password" required
                     autocomplete="new-password" />
 
                 <InputError class="mt-2" :message="form.errors.password" />
@@ -59,7 +59,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel for="password_confirmation" value="Confirm Password" />
 
-                <TextInput id="password_confirmation" type="password" class="mt-1 block w-full"
+                <TextInput id="password_confirmation" type="password" class="block w-full mt-1"
                     v-model="form.password_confirmation" required autocomplete="new-password" />
 
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
@@ -67,7 +67,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <Link :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Already registered?
                 </Link>
 

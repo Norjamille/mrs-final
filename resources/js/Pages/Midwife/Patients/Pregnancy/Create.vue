@@ -13,6 +13,7 @@ let props = defineProps({
 
 let form = useForm({
     age_of_gestation: '',
+    days_of_gestation: '',
     baby_count: '',
 })
 
@@ -28,7 +29,12 @@ const submitHandler = () => {
                 <Card>
                     <div class="sm:col-span-3">
                         <FormInput v-model="form.age_of_gestation" :error="form.errors.age_of_gestation" type="number"
-                            label="Age of Gestation" />
+                            label="Month (Age of Gestation)" />
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <FormInput v-model="form.days_of_gestation" :error="form.errors.days_of_gestation" type="number"
+                            label="Days (Age of Gestation)" />
                     </div>
 
                     <div class="sm:col-span-3">

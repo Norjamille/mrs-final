@@ -29,10 +29,10 @@ const submit = () => {
     <GuestLayout>
 
         <Head title="Log in" />
-        <div class="grid justify-center items-center flex-shrink-0 px-4 space-x-4">
-            <span class="text-2xl font-bold tracking-widest text-rose-600">M.R.S</span>
+        <div class="grid items-center justify-center flex-shrink-0 px-4 mb-2 space-x-4">
+            <span class="text-xl font-bold tracking-widest text-rose-600">MATERNAL DATABASE SYSTEM</span>
         </div>
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}
         </div>
 
@@ -40,7 +40,7 @@ const submit = () => {
             <div>
                 <InputLabel for="email" value="Email" />
 
-                <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus
+                <TextInput id="email" type="email" class="block w-full mt-1" v-model="form.email" required autofocus
                     autocomplete="username" />
 
                 <InputError class="mt-2" :message="form.errors.email" />
@@ -49,7 +49,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
 
-                <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
+                <TextInput id="password" type="password" class="block w-full mt-1" v-model="form.password" required
                     autocomplete="current-password" />
 
                 <InputError class="mt-2" :message="form.errors.password" />
@@ -64,7 +64,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <Link v-if="canResetPassword" :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Forgot your password?
                 </Link>
 
@@ -75,17 +75,16 @@ const submit = () => {
         </form>
 
     </GuestLayout>
-    <div v-show="form.processing"
-        class="h-full grid justify-center items-center w-full top-0 right-0  bg-rose-500 absolute">
-        <div class="flex flex-col space-y-4 justify-center">
-            <div class="loading mx-auto">
+    <div v-show="form.processing" class="absolute top-0 right-0 grid items-center justify-center w-full h-full bg-rose-500">
+        <div class="flex flex-col justify-center space-y-4">
+            <div class="mx-auto loading">
                 <svg width="64px" height="48px">
                     <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back"></polyline>
                     <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
                 </svg>
             </div>
-            <div class="text-white text-xl font-semibold">
-                Signing in to MSR
+            <div class="text-xl font-semibold text-white">
+                Signing in to MBS
             </div>
         </div>
     </div>

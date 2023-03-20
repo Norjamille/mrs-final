@@ -25,6 +25,7 @@ class StorePatientPregnancyRequest extends FormRequest
     {
         return [
             'age_of_gestation' => 'required|numeric|max:9|min:0',
+            'days_of_gestation'=>'nullable|numeric|min:0',
             'baby_count' => 'required|numeric',
         ];
     }
@@ -33,6 +34,8 @@ class StorePatientPregnancyRequest extends FormRequest
     {
         return [
             'baby_count' => 'no. of baby',
+            'age_of_gestation'=>'Months',
+            'days_of_gestation'=>'Days'
         ];
     }
 }
