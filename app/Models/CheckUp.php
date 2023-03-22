@@ -13,6 +13,13 @@ class CheckUp extends Model
 
     protected $guarded = [];
 
+    const BLOOD_TYPES = [
+        'A' => 'A',
+        'B' => 'B',
+        'AB' => 'AB',
+        'O' => 'O',
+    ];
+
     public function patient()
     {
         return $this->belongsTo(Patient::class);

@@ -11,23 +11,23 @@ import { useNow, useDateFormat } from '@vueuse/core'
 import FormTextarea from '@/Components/FormTextarea.vue';
 
 const props = defineProps({
-    checkUp: Object
+    checkUp: Object,
 })
 
 const page = usePage();
 const today = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss')
 
 let form = useForm({
-    weight: '',
-    height: '',
-    age_of_gestation: '',
-    blood_pressure: '',
-    body_mass_index: '',
-    laboratory_test_done: '',
-    urinalysis: '',
-    complete_blood_count: '',
-    blood_typing: '',
-    advice_and_services: '',
+    weight: props.checkUp.weight ?? '',
+    height: props.checkUp.height ?? '',
+    age_of_gestation: props.checkUp.age_of_gestation ?? '',
+    blood_pressure: props.checkUp.blood_pressure ?? '',
+    body_mass_index: props.checkUp.body_mass_index ?? '',
+    laboratory_test_done: props.checkUp.laboratory_test_done ?? '',
+    urinalysis: props.checkUp.urinalysis ?? '',
+    complete_blood_count: props.checkUp.complete_blood_count ?? '',
+    blood_typing: props.checkUp.blood_typing ?? '',
+    advice_and_services: props.checkUp.advice_and_services ?? '',
     name_of_service_worker: page.props.auth.user.name,
     done_at: props.checkUp.done_at ?? today.value,
 })
@@ -62,8 +62,12 @@ const submitHandler = () => {
                             label="Blood Pressure" />
                     </div>
                     <div class="sm:col-span-3">
-                        <FormInput v-model="form.blood_typing" :error="form.errors.blood_typing" type="text"
-                            label="Body Mass Index" />
+                        <FormSelect v-model="form.blood_typing" :error="form.errors.blood_typing" label="Blood Typing">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                        </FormSelect>
                     </div>
                     <div class="sm:col-span-3">
                         <FormInput v-model="form.complete_blood_count" :error="form.errors.complete_blood_count"
@@ -71,7 +75,7 @@ const submitHandler = () => {
                     </div>
                     <div class="sm:col-span-3">
                         <FormInput v-model="form.body_mass_index" :error="form.errors.body_mass_index" type="text"
-                            label="Blood Typing" />
+                            label="Body Mass Index" />
                     </div>
                     <div class="sm:col-span-6">
                         <FormTextarea v-model="form.laboratory_test_done" :error="form.errors.laboratory_test_done"

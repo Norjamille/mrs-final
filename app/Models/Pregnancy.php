@@ -12,7 +12,6 @@ class Pregnancy extends Model
     protected $guarded = [];
 
     const DELIVERY_TYPE = [
-        'vaginal_birth' => 'Vaginale Birth',
         'natural_birth' => 'Natural Birth',
         'scheduled_cesarean' => 'Scheduled Cesarean',
         'unplanned_cesarean' => 'Uplanned Cesarean',

@@ -12,8 +12,11 @@ class PatientCheckUpScheduleController extends Controller
 {
     public function create(Patient $patient)
     {
+        $latest_pregnancy = $patient->pregnancies()->latest()->first();
         return Inertia::render('Midwife/Patients/CheckUpSchedules/Create', [
-            'patient' => $patient->load('checkUps'),
+            'patient' => $patient->load(['checkUps'=>function($query) use($latest_pregnancy){
+                $query->where('pregnancy_id',$latest_pregnancy->id);
+            }]),
         ]);
     }
 

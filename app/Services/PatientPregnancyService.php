@@ -9,8 +9,8 @@ class PatientPregnancyService
     public function store($patient, $form)
     {
         DB::beginTransaction();
-        $patient->pregnancies()->create($form);
-        $this->createAutoSchedule($patient);
+        $pregnancy_id = $patient->pregnancies()->create($form)->id;
+        $this->createAutoSchedule($patient,$pregnancy_id);
         DB::commit();
     }
 
@@ -23,15 +23,17 @@ class PatientPregnancyService
     }
 
 
-    public function createAutoSchedule($patient)
+    public function createAutoSchedule($patient,$pregnany_id)
     {
-            $current_age_of_gestation = $patient->pregnancies()->first()->age_of_gestation;
+            $pregnancy= $patient->pregnancies()->whereId($pregnany_id)->first();
+            $current_age_of_gestation = $pregnancy->age_of_gestation;
             $remaining_check_up = 9 - $current_age_of_gestation;
             $current_date = now();
 
             for ($i = 1; $i <= $remaining_check_up; $i++) {
                 $current_date = $current_date->addWeeks(4);
                 $patient->checkups()->create([
+                    'pregnancy_id' => $pregnancy->id,
                     'date_at' => $current_date,
                     'description' => 'Check Up No. ' . $i,
                 ]);

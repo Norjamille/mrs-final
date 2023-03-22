@@ -1,5 +1,6 @@
 <?php
 
+
 Route::prefix('midwife/dashboard')
 ->middleware(['auth', 'role:Midwife'])
 ->controller(\App\Http\Controllers\Midwife\DashboardController::class)
@@ -81,4 +82,14 @@ Route::prefix('/midwife/reports')
     Route::get('/list-of-infants', 'listOfInfants')->name('midwife.reports.listOfInfants');
     Route::get('/list-of-schedules', 'listOfSchedules')->name('midwife.reports.listOfSchedules');
     Route::get('/{patient}/information', 'patientInfo')->name('midwife.reports.patientInfo');
+});
+
+Route::get('/schedule-report/{patient}',function($patient){
+    $patient = \App\Models\Patient::find($patient);
+    $latest_pregnancy = $patient->pregnancies()->latest()->first();
+    
+    return view('reports.single-schedule-report',[
+        'checkups' => \App\Models\CheckUp::where('pregnancy_id',$latest_pregnancy->id)->get(),
+        'patient' => $patient,
+    ]);
 });

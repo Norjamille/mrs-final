@@ -20,7 +20,7 @@ const props = defineProps({
                     Hello 👋, <span class="text-xl font-bold">{{ $page.props.auth.user.name }}</span>
                 </h1>
                 <span class="text-2xl font-bold uppercase text-rose-500">
-                    Maternal Recording System
+                    Maternal Database System
                 </span>
                 <span class="text-gray-600">
                     Barangay Biwang, Bagumbayan Sultan Kudarat Philippines

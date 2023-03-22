@@ -42,25 +42,30 @@ const submitHandler = () => {
                                 label="Date" />
                         </div>
                         <div class="sm:col-span-6">
-                            <FormTextarea v-model="form.description" :error="form.errors.description"
-                                label="Description" />
+                            <FormTextarea v-model="form.description" :error="form.errors.description" label="Description" />
                         </div>
                         <template #footer>
                             <div class="flex space-x-3">
                                 <SecondaryButtonLink :href="route('midwife.patients')">
                                     Return
                                 </SecondaryButtonLink>
-                                <PrimaryButton :loading-on="form.processing" :disabled="form.processing" type="submit">
-                                    Submit</PrimaryButton>
+                                <b :loading-on="form.processing" :disabled="form.processing" type="submit">
+                                    Submit</b>
                             </div>
                         </template>
                     </Card>
                 </form>
             </div>
             <ol class="text-sm leading-6 divide-y divide-gray-100 sm:col-span-4">
-                <h1 class="text-lg font-semibold">
-                    Schedules
-                </h1>
+                <div class="flex items-center justify-between space-x-2">
+                    <h1 class="text-lg font-semibold">
+                        Schedules
+                    </h1>
+                    <a :href="'/schedule-report/' + props.patient.id" target="_blank" type="button"
+                        class="text-xl underline text-rose-600">
+                        Print
+                    </a>
+                </div>
                 <template v-for="schedule in props.patient.check_ups" :key="schedule.id">
                     <li class="relative flex py-4 space-x-6 xl:static">
                         <div class="flex-auto">

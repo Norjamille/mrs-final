@@ -18,9 +18,9 @@ let props = defineProps({
     <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
     <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
             <!--
-                  Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+                      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
-                  Entering: "transition-opacity ease-linear duration-300"
+                      Entering: "transition-opacity ease-linear duration-300"
         From: "opacity-0"
         To: "opacity-100"
       Leaving: "transition-opacity ease-linear duration-300"
@@ -31,7 +31,7 @@ let props = defineProps({
 
         <div class="fixed inset-0 z-40 flex">
                 <!--
-                    Off-canvas menu, show/hide based on off-canvas menu state.
+                        Off-canvas menu, show/hide based on off-canvas menu state.
 
         Entering: "transition ease-in-out duration-300 transform"
           From: "-translate-x-full"
@@ -42,15 +42,15 @@ let props = defineProps({
       -->
             <div class="relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-rose-700">
                     <!--
-                      Close button, show/hide based on off-canvas menu state.
+                          Close button, show/hide based on off-canvas menu state.
 
-                      Entering: "ease-in-out duration-300"
-                        From: "opacity-0"
-                        To: "opacity-100"
-                      Leaving: "ease-in-out duration-300"
-                        From: "opacity-100"
-                        To: "opacity-0"
-                    -->
+                          Entering: "ease-in-out duration-300"
+                            From: "opacity-0"
+                            To: "opacity-100"
+                          Leaving: "ease-in-out duration-300"
+                            From: "opacity-100"
+                            To: "opacity-0"
+                        -->
                     <div class="absolute top-0 right-0 pt-2 -mr-12">
                         <button type="button"
                             class="flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -168,7 +168,7 @@ let props = defineProps({
                 <div class="flex justify-between flex-1 px-4">
                     <div class="flex items-center flex-1">
                         <span class="text-xl font-semibold uppercase text-rose-500">
-                            Maternal Recording System
+                            Maternal Database System
                         </span>
                     </div>
                     <div class="flex items-center ml-4 md:ml-6">

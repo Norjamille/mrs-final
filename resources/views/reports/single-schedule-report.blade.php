@@ -28,22 +28,26 @@
         <div style="text-align: center; font-size: 20pt; font-weight: bold;">Maternal Database System in Barangay Biwang,
           Bagumbayan Sultan Kudarat</div>
         <p style="font-size: 1.25rem; font-weight: 600; text-align: center; margin-top: 20px;">
-            List of Pregnant Patients
+            List of Check Up Schedule
         </p>
       </div>
       <table style="border-collapse: collapse; width: 100%; margin-top: 20px;">
-    
-        <tr style="background-color: #D9D9D9; height: 18.75pt;">
-          <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Name</th>
-          <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Gender</th>
+        <tr style="; height: 18.75pt;">
+          <th colspan="2" style="border: 1px solid #000000; padding: 0.9375rem; text-align: left;">
+            {{ $patient->first_name }} {{ $patient->last_name }}
+          </th>
         </tr>
-        @foreach ($infants as $infant)
+        <tr style="background-color: #D9D9D9; height: 18.75pt;">
+          <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Date</th>
+          <th style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">Description</th>
+        </tr>
+        @foreach ($checkups as $checkup)
         <tr >
           <td style="border: 1px solid #000000; padding: 0.9375rem;">
-            {{ $infant->first_name }} {{ $infant->last_name }}
+            {{ $checkup->date_at }}
           </td>
           <td style="border: 1px solid #000000; padding: 0.9375rem; text-align: center;">
-            {{ $infant->gender }}
+            {{ $checkup->description }}
           </td>
         </tr>
         @endforeach
