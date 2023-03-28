@@ -16,6 +16,11 @@ const navigations = [
         icon: HomeIcon,
     },
     {
+        name: 'Patients',
+        url: '/admin/patients',
+        icon: PresentationChartBarIcon,
+    },
+    {
         name: 'Users',
         url: '/admin/users',
         icon: UserIcon,

@@ -36,6 +36,17 @@ class UpdateCheckUpRequest extends FormRequest
             'advice_and_services' => 'required|max:250',
             'name_of_service_worker' => 'required',
             'done_at' => 'required|date',
+            'age_of_gestation_weeks' => 'required|numeric',
+            'age_of_gestation_days' => 'required|numeric',
         ];
+    }
+
+    public function attributes()
+    {
+       return [
+        'age_of_gestation' => 'Age of Gestation (Months)',
+        'age_of_gestation_weeks' => 'Age of Gestation (Weeks)',
+        'age_of_gestation_days' => 'Age of Gestation (Days)',
+       ];
     }
 }

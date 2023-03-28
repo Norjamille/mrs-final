@@ -30,6 +30,8 @@ let form = useForm({
     advice_and_services: props.checkUp.advice_and_services ?? '',
     name_of_service_worker: page.props.auth.user.name,
     done_at: props.checkUp.done_at ?? today.value,
+    age_of_gestation_weeks: props.checkUp.age_of_gestation_weeks ?? '',
+    age_of_gestation_days: props.checkUp.age_of_gestation_days ?? '',
 })
 
 const submitHandler = () => {
@@ -51,11 +53,19 @@ const submitHandler = () => {
                     </div>
                     <div class="sm:col-span-3">
                         <FormInput v-model="form.height" :error="form.errors.height" type="number"
-                            label="Heigh in Centimeter" />
+                            label="Height in Centimeter" />
                     </div>
                     <div class="sm:col-span-3">
                         <FormInput v-model="form.age_of_gestation" :error="form.errors.age_of_gestation" type="number"
-                            label="Age of gestation" />
+                            label="Age of gestation (months)" />
+                    </div>
+                    <div class="sm:col-span-3">
+                        <FormInput v-model="form.age_of_gestation_weeks" :error="form.errors.age_of_gestation_weeks"
+                            type="number" label="Age of gestation (weeks)" />
+                    </div>
+                    <div class="sm:col-span-3">
+                        <FormInput v-model="form.age_of_gestation_days" :error="form.errors.age_of_gestation_days"
+                            type="number" label="Age of gestation (days)" />
                     </div>
                     <div class="sm:col-span-3">
                         <FormInput v-model="form.blood_pressure" :error="form.errors.blood_pressure" type="text"
@@ -63,10 +73,14 @@ const submitHandler = () => {
                     </div>
                     <div class="sm:col-span-3">
                         <FormSelect v-model="form.blood_typing" :error="form.errors.blood_typing" label="Blood Typing">
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="AB">AB</option>
-                            <option value="O">O</option>
+                            <option value="0+">0+</option>
+                            <option value="0-">0-</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
                         </FormSelect>
                     </div>
                     <div class="sm:col-span-3">

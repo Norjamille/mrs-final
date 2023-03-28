@@ -42,3 +42,10 @@ Route::prefix('reports')
     Route::get('/list-of-infants', 'listOfInfants')->name('admin.reports.listOfInfants');
     Route::get('/list-of-schedules', 'listOfSchedules')->name('admin.reports.listOfSchedules');
 });
+
+Route::prefix('admin/patients')
+->controller(\App\Http\Controllers\Admin\PatientController::class)
+->middleware(['auth','role:Admin'])
+->group(function () {
+    Route::get('/', 'index')->name('admin.patient');
+});

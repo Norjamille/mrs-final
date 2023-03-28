@@ -42,8 +42,6 @@ const props = defineProps({
   filters: Object
 })
 
-defineOptions({ layout: AdminLayout })
-
 let scope = ref(props.filters.scope || null)
 
 let scopeTitle = computed(() => {

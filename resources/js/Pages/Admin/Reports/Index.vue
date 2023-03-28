@@ -6,37 +6,45 @@ const tabs = [
     {
         title: 'Per Purok',
         description: 'Generate reports for all pregnant patient in every purok of Biwang',
-        route: '/per-purok/reports'
+        route: '/per-purok/reports',
+        useLink: false
     },
     {
         title: 'Per Gender',
         description: 'Generate reports for all list of infants per gender',
-        route: '/per-gender/report'
+        route: '/per-gender/report',
+        useLink: false
+
     },
     {
         title: 'Per Delivery Type',
         description: 'Generate reports for number of all patient undetake a specific delivery type',
-        route: '/per-delivery-type/reports'
+        route: '/per-delivery-type/reports',
+        useLink: false
     },
     {
         title: ' List of Pregnant',
         description: ' Generate reports for list of all pregnant woman',
-        route: route('admin.reports.listOfPregnant')
+        route: route('admin.reports.listOfPregnant'),
+        useLink: true
     },
     {
         title: 'List of Infants',
         description: '  Generate reports for list of all infants',
-        route: route('admin.reports.listOfInfants')
+        route: route('admin.reports.listOfInfants'),
+        useLink: true
     },
     {
         title: 'List of Schedules',
         description: 'Generate reports for list of all schedules',
-        route: route('admin.reports.listOfSchedules')
+        route: route('admin.reports.listOfSchedules'),
+        useLink: true
     },
     {
         title: 'Number of Vaccinated Infants',
         description: 'Generate reports for number of maccinated infants',
-        route: '/vaccinated/reports'
+        route: '/vaccinated/reports',
+        useLink: true
     }
 ]
 </script>
@@ -51,9 +59,16 @@ const tabs = [
                     {{ tab.description }}
                 </p>
                 <div class="pt-4">
-                    <Link :href="tab.route" class="px-3 py-1.5 text-white text-sm bg-rose-600 rounded-md">
-                    Print
-                    </Link>
+                    <template v-if="tab.useLink">
+                        <Link :href="tab.route" class="px-3 py-1.5 text-white text-sm bg-rose-600 rounded-md">
+                        Print {{ tab.useLink }}
+                        </Link>
+                    </template>
+                    <template v-else>
+                        <a :href="tab.route" target="_blank" class="px-3 py-1.5 text-white text-sm bg-rose-600 rounded-md">
+                            Print {{ tab.useLink }}
+                        </a>
+                    </template>
                 </div>
             </div>
         </div>

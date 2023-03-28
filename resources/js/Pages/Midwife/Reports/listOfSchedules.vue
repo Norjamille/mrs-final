@@ -1,5 +1,5 @@
 <template>
-  <MidwifeLayout title="Per Purok">
+  <MidwifeLayout title="List of Schedules">
     <div class="flex justify-end mb-5 space-x-2">
       <SelectInput v-model="scope">
         <option value="">All</option>
@@ -41,8 +41,6 @@ const props = defineProps({
   schedules: Object,
   filters: Object
 })
-
-defineOptions({ layout: MidwifeLayout })
 
 let scope = ref(props.filters.scope || null)
 
