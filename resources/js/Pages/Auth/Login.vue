@@ -84,7 +84,7 @@ const submit = () => {
                 </svg>
             </div>
             <div class="text-xl font-semibold text-white">
-                Signing in to MBS
+                Signing in to MDS
             </div>
         </div>
     </div>

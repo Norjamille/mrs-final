@@ -60,12 +60,12 @@ const tabs = [
                 <div class="pt-4">
                     <template v-if="tab.useLink">
                         <Link :href="tab.route" class="px-3 py-1.5 text-white text-sm bg-rose-600 rounded-md">
-                        Print {{ tab.useLink }}
+                        Print
                         </Link>
                     </template>
                     <template v-else>
                         <a :href="tab.route" target="_blank" class="px-3 py-1.5 text-white text-sm bg-rose-600 rounded-md">
-                            Print {{ tab.useLink }}
+                            Print
                         </a>
                     </template>
                 </div>
