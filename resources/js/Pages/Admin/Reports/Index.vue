@@ -42,7 +42,7 @@ const tabs = [
     },
     {
         title: 'Number of Vaccinated Infants',
-        description: 'Generate reports for number of maccinated infants',
+        description: 'Generate reports for number of vaccinated infants',
         route: '/vaccinated/reports',
         useLink: true
     }

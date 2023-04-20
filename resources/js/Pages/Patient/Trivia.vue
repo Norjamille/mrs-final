@@ -2,7 +2,7 @@
 import Trivia from '@/Components/Trivia.vue';
 import PatientLayout from '@/Layouts/PatientLayout.vue';
 
-const pageTitle = " May iba't Ibang pamamaraan ng plannin,Alin kaya ang bagay sa amin ?"
+const pageTitle = " May iba't Ibang pamamaraan ng planning,Alin kaya ang bagay sa amin ?"
 
 </script>
 <template>
@@ -12,7 +12,7 @@ const pageTitle = " May iba't Ibang pamamaraan ng plannin,Alin kaya ang bagay sa
         {{ pageTitle }}
       </span>
     </div>
-    <Trivia title="STANDARTD DAYS METHOD (Cycle Beads)"
+    <Trivia title="STANDARD DAYS METHOD (Cycle Beads)"
       img="https://static.wixstatic.com/media/4bf6d1_a4dee462217d46c1b7932642a94686c7~mv2_d_1962_1305_s_2.jpg/v1/fill/w_640,h_424,al_t,q_80,usm_0.66_1.00_0.01,enc_auto/4bf6d1_a4dee462217d46c1b7932642a94686c7~mv2_d_1962_1305_s_2.jpg">
       <p>
         Ito ay isang natural na pamamaraan
