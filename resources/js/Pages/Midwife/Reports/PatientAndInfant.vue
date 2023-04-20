@@ -4,7 +4,7 @@
       <PrimaryButton @click="printContent">Print</PrimaryButton>
     </div>
     <div id="pritable">
-      <ReportHeader report-title="Patient Informatio Report" />
+      <ReportHeader report-title="Patient Information Report" />
       <div style="padding-top: 10px; display: grid;">
         <span class="text-xl text-gray-600">Patient Name : {{ props.patient.first_name }} {{ props.patient.last_name
         }}</span>
